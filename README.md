@@ -7,6 +7,8 @@ Each text (called a *memo*) is permanently recorded on-chain, giving users full 
 This project is perfect for learning **Solidity fundamentals**, **smart contract storage patterns**, and **access control** — while building something practical!
 
 <img width="1920" height="1080" alt="Screenshot (75)" src="https://github.com/user-attachments/assets/54463e7a-193e-4243-8015-554b98a0c3b3" />
+<img width="1920" height="1080" alt="Screenshot (74)" src="https://github.com/user-attachments/assets/6039b093-d460-4dba-bc85-3ede6e52e960" />
+
 
 ---
 
