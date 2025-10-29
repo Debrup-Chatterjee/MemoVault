@@ -1,6 +1,6 @@
 # 🧠 MemoVault – On-Chain Secure Text Saver
 
-### 💎 Project Description
+## 💎 Project Description
 **MemoVault** is a beginner-friendly Solidity smart contract that allows users to **securely store, update, and delete text entries directly on the blockchain**.  
 Each text (called a *memo*) is permanently recorded on-chain, giving users full ownership and transparency over their data.  
 
@@ -10,7 +10,7 @@ This project is perfect for learning **Solidity fundamentals**, **smart contract
 
 ---
 
-### 🚀 What It Does
+## 🚀 What It Does
 MemoVault enables anyone with a Web3 wallet (like MetaMask) to:
 - Create memos and store them **permanently on-chain**  
 - View their memos anytime using their wallet address  
@@ -21,7 +21,7 @@ All actions are recorded via **events** on the blockchain, ensuring full traceab
 
 ---
 
-### ✨ Features
+## ✨ Features
 - 🧱 **Create**: Save text securely on the blockchain  
 - 🔍 **Read**: Retrieve stored memos by ID  
 - ✏️ **Update**: Modify your own memos anytime  
@@ -32,7 +32,7 @@ All actions are recorded via **events** on the blockchain, ensuring full traceab
 
 ---
 
-### 🌐 Deployed Smart Contract
+## 🌐 Deployed Smart Contract
 - Deployed on **Celo Sepolia Testnet**  
 🔗 [View on Blockscout](https://celo-sepolia.blockscout.com/address/0xA5d4F75E686b368F10F55Fa854764D1289001E8c)
 
@@ -41,7 +41,7 @@ All actions are recorded via **events** on the blockchain, ensuring full traceab
 
 ---
 
-### 💻 Smart Contract Code
+## 💻 Smart Contract Code
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -118,14 +118,14 @@ contract MemoVault {
 
 ---
 
-### 🧰 Tech Stack
+## 🧰 Tech Stack
 - **Language:** Solidity  
 - **Network:** Celo Sepolia Testnet  
 - **Tools:** Remix IDE, MetaMask, Blockscout  
 
 ---
 
-### 🪄 How to Try It
+## 🪄 How to Try It
 1. Visit [Remix IDE](https://remix.ethereum.org)  
 2. Create a new file named `MemoVault.sol` and paste the contract code  
 3. Compile it using **Solidity 0.8.x**  
@@ -138,7 +138,7 @@ contract MemoVault {
 
 ---
 
-### 📘 Learning Goals
+## 📘 Learning Goals
 - Understand **structs**, **mappings**, and **events**  
 - Practice **access control** with `msg.sender`  
 - Learn **CRUD operations** in Solidity  
@@ -146,17 +146,12 @@ contract MemoVault {
 
 ---
 
-### 🧩 Future Improvements
+## 🧩 Future Improvements
 - 🔐 Off-chain encryption for private memos  
 - 🧭 IPFS integration for large text or media storage  
 - 🪶 Lightweight React frontend for memo management  
 - 👥 Shared/public memo access options  
 - 📨 Notifications on memo updates  
-
----
-
-### 🪙 License
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
@@ -167,7 +162,12 @@ Feel free to open an [Issue](https://github.com/Debrup-Chatterjee/MemoVault/issu
 
 ---
 
-### 🧑‍💻 Author
+## 🪙 License
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 🧑‍💻 Author
 [Debrup Chatterjee](https://github.com/Debrup-Chatterjee/)
 
 
