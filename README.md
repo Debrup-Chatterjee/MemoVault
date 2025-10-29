@@ -33,22 +33,145 @@ All actions are recorded via **events** on the blockchain, ensuring full traceab
 ---
 
 ### 🌐 Deployed Smart Contract
-Deployed on **Celo Sepolia Testnet**  
+- Deployed on **Celo Sepolia Testnet**  
 🔗 [View on Blockscout](https://celo-sepolia.blockscout.com/address/0xA5d4F75E686b368F10F55Fa854764D1289001E8c)
 
-**Contract Address:**  
+- **Contract Address:**  
 0xA5d4F75E686b368F10F55Fa854764D1289001E8c
+
+---
+
+### 💻 Smart Contract Code
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract MemoVault {
+    // Struct to store each memo
+    struct Memo {
+        string text;
+        address owner;
+        uint256 timestamp;
+    }
+
+    // Mapping from unique ID to Memo
+    mapping(uint256 => Memo) private memos;
+    uint256 private memoCount; // Tracks total number of memos
+
+    // Events for logging actions
+    event MemoCreated(uint256 memoId, address indexed owner, string text, uint256 timestamp);
+    event MemoUpdated(uint256 memoId, string newText, uint256 timestamp);
+    event MemoDeleted(uint256 memoId, uint256 timestamp);
+
+    // ✅ Create a new memo
+    function createMemo(string calldata _text) external {
+        require(bytes(_text).length > 0, "Text cannot be empty");
+
+        memos[memoCount] = Memo({
+            text: _text,
+            owner: msg.sender,
+            timestamp: block.timestamp
+        });
+
+        emit MemoCreated(memoCount, msg.sender, _text, block.timestamp);
+        memoCount++;
+    }
+
+    // ✅ Read a memo by ID
+    function readMemo(uint256 _id) external view returns (string memory text, address owner, uint256 timestamp) {
+        require(_id < memoCount, "Memo does not exist");
+        Memo memory m = memos[_id];
+        return (m.text, m.owner, m.timestamp);
+    }
+
+    // ✅ Update your own memo
+    function updateMemo(uint256 _id, string calldata _newText) external {
+        require(_id < memoCount, "Memo does not exist");
+        Memo storage m = memos[_id];
+        require(msg.sender == m.owner, "Not your memo");
+        require(bytes(_newText).length > 0, "Text cannot be empty");
+
+        m.text = _newText;
+        m.timestamp = block.timestamp;
+
+        emit MemoUpdated(_id, _newText, block.timestamp);
+    }
+
+    // ✅ Delete your own memo
+    function deleteMemo(uint256 _id) external {
+        require(_id < memoCount, "Memo does not exist");
+        Memo storage m = memos[_id];
+        require(msg.sender == m.owner, "Not your memo");
+
+        delete memos[_id];
+        emit MemoDeleted(_id, block.timestamp);
+    }
+
+    // ✅ Get total number of memos (useful for frontend)
+    function getMemoCount() external view returns (uint256) {
+        return memoCount;
+    }
+}
+
+```
+
+---
+
+### 🧰 Tech Stack
+- **Language:** Solidity  
+- **Network:** Celo Sepolia Testnet  
+- **Tools:** Remix IDE, MetaMask, Blockscout  
+
+---
+
+### 🪄 How to Try It
+1. Visit [Remix IDE](https://remix.ethereum.org)  
+2. Create a new file named `MemoVault.sol` and paste the contract code  
+3. Compile it using **Solidity 0.8.x**  
+4. Deploy using **Injected Provider - MetaMask (Celo Sepolia)**  
+5. Interact with your contract:
+   - `createMemo("Hello Blockchain!")`
+   - `readMemo(0)`
+   - `updateMemo(0, "Updated text!")`
+   - `deleteMemo(0)`
+
+---
+
+### 📘 Learning Goals
+- Understand **structs**, **mappings**, and **events**  
+- Practice **access control** with `msg.sender`  
+- Learn **CRUD operations** in Solidity  
+- Explore **blockchain transparency and immutability**  
+
+---
+
+### 🧩 Future Improvements
+- 🔐 Off-chain encryption for private memos  
+- 🧭 IPFS integration for large text or media storage  
+- 🪶 Lightweight React frontend for memo management  
+- 👥 Shared/public memo access options  
+- 📨 Notifications on memo updates  
+
+---
+
+### 🪙 License
+This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
 ## 💬 Feedback & Contributions
 
 Have ideas, improvements, or suggestions?  
-Feel free to open an [Issue](https://github.com/Debrup-Chatterjee/Integrated-Library-System/issues) or submit a [Pull Request](https://github.com/Debrup-Chatterjee/Integrated-Library-System/pulls).
-
+Feel free to open an [Issue](https://github.com/Debrup-Chatterjee/MemoVault/issues) or submit a [Pull Request](https://github.com/Debrup-Chatterjee/MemoVault/pulls).
 
 ---
 
+### 🧑‍💻 Author
+[Debrup Chatterjee](https://github.com/Debrup-Chatterjee/)
+
+
+---
 
 ## 🔗 Connect with Me
 
@@ -56,6 +179,8 @@ Feel free to open an [Issue](https://github.com/Debrup-Chatterjee/Integrated-Lib
 - 📧 [Email](mailto:debrupchatterjee31@gmail.com)
 
 ---
+<p align="center">⭐ If you found this project helpful, consider giving it a star on GitHub!  
+Every star motivates open-source learning 🌟</p>
 
 **<p align="center"> Built with ❤️ by Debrup Chatterjee </p>**
 
